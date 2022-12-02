@@ -1,13 +1,10 @@
 package aoc
 
-import java.io.File
-
 /**
  * [AoC 2022: Day 1](https://adventofcode.com/2022/day/1)
  */
-@Suppress("unused")
 fun findMaxCalories(): Int {
-    val input = readInput() ?: return -1
+    val input = readInput("day1.txt") ?: return -1
 
     var max = 0
     processSums(input) { sum ->
@@ -16,9 +13,8 @@ fun findMaxCalories(): Int {
     return max
 }
 
-@Suppress("unused")
 fun findSumOfTop3Calories(): Int {
-    val input = readInput() ?: return -1
+    val input = readInput("day1.txt") ?: return -1
 
     val top3 = Top3()
     processSums(input, top3::add)
@@ -40,13 +36,6 @@ private class Top3 {
     }
 
     fun getValues() = values
-}
-
-private fun readInput(): List<String>? {
-    return object {}::class.java.classLoader.getResource("day1.txt")
-        ?.toURI()
-        ?.let { File(it) }
-        ?.readLines()
 }
 
 private fun processSums(input: List<String>, processor: (Int) -> Unit) {

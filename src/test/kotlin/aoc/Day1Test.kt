@@ -1,5 +1,5 @@
-import aoc.findMaxCalories
-import aoc.findSumOfTop3Calories
+package aoc
+
 import org.junit.Test
 import kotlin.test.assertEquals
 
